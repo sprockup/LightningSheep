@@ -1,4 +1,0 @@
-LightningSheep
-==============
-
-Lightning Sheep Repo
