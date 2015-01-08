@@ -1,13 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LightningBolt {
+public class LightningBolt : MonoBehaviour {
+
+	// Prefabs
+	GameObject fadingMessagePreFab;
+	GameObject lighteningBolt;
 
 	// Base of the cloud used to start the lightning bolt from to the first sheep
-	GameObject cloud;
+	private GameObject cloud;
 
 	// Collection of sheep found during the first strike
-	GameObject[] sheep;
+	private GameObject[] sheep;
 
 	// Use this for initialization
 	LightningBolt () {
@@ -39,7 +43,7 @@ public class LightningBolt {
 		// Collect all sheep objects into the array for processing
 		GameObject[] sheep = GameObject.FindGameObjectsWithTag("Sheep");
 
-		return sheep.Length ();
+		return 1;//sheep.Length ();
 	}
 
 	/*
