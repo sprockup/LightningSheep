@@ -25,6 +25,8 @@ ModelImporter:
     100038: stopsigns
     100040: troughs2
     100042: truck1
+    100044: popupgrass
+    100046: sheeps1:sheeps:polySurface172
     400000: barn2
     400002: building1
     400004: dirtroads
@@ -47,6 +49,8 @@ ModelImporter:
     400038: stopsigns
     400040: troughs2
     400042: truck1
+    400044: popupgrass
+    400046: sheeps1:sheeps:polySurface172
     2300000: barn2
     2300002: building1
     2300004: dirtroads
@@ -67,6 +71,8 @@ ModelImporter:
     2300034: stopsigns
     2300036: troughs2
     2300038: truck1
+    2300040: popupgrass
+    2300042: sheeps1:sheeps:polySurface172
     3300000: barn2
     3300002: building1
     3300004: dirtroads
@@ -87,6 +93,8 @@ ModelImporter:
     3300034: stopsigns
     3300036: troughs2
     3300038: truck1
+    3300040: popupgrass
+    3300042: sheeps1:sheeps:polySurface172
     4300000: silos
     4300002: truck1
     4300004: skybox2
@@ -107,6 +115,8 @@ ModelImporter:
     4300034: polySurface26
     4300036: polySurface9
     4300038: polySurface27
+    4300040: sheeps1:sheeps:polySurface172
+    4300042: popupgrass
     9500000: //RootNode
   materials:
     importMaterials: 1
