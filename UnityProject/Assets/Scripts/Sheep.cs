@@ -227,13 +227,19 @@ public class Sheep : MonoBehaviour {
 	{
 		// Create new lightenbolt cylinder from PreFab
 		GameObject bolt = (GameObject)Instantiate(lighteningBolt, b.transform.position, Quaternion.identity);
+		
+		Debug.Log(bolt.transform.position);
+		Debug.Log(b.transform.position);
+		
 		// Face the lightening bolt from sheep to cloud
-		bolt.transform.LookAt(a.transform);
+		//? bolt.transform.LookAt(a.transform);
+		
 		// Position the bolt's center point half way between the cloud and sheep
 		bolt.transform.position = Vector3.Lerp(a.transform.position, b.transform.position, 0.5f);
+		
 		// Scale the bolt from sheep to cloud
 		Vector3 newScale = bolt.transform.localScale;
-		newScale.z = Vector3.Distance(b.transform.position, a.transform.position);
+		newScale.y = Vector3.Distance(b.transform.position, a.transform.position);
 		bolt.transform.localScale = newScale;
 	}
 	

@@ -19,6 +19,6 @@ public class RandomBehavior : IBehavior {
 	public Vector3 GetNextPosition()
 	{
 		//return new Vector3 (Random.Range (50, 150), -0.1f, Random.Range (50, 150));
-		return new Vector3 (Random.Range (-7, -200), 0.5f, Random.Range (-170, 9));
+		return new Vector3 (Random.Range (-7, -200), 0.62f, Random.Range (-170, 9));
 	}
 }
