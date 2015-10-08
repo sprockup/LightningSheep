@@ -240,7 +240,8 @@ public class Sheep : MonoBehaviour {
 		// Scale the bolt from sheep to cloud
 		Vector3 newScale = bolt.transform.localScale;
 		newScale.y = Vector3.Distance(b.transform.position, a.transform.position);
-		bolt.transform.localScale = newScale;
+		// Commented out for bolt position debug
+		//bolt.transform.localScale = newScale;
 	}
 	
 	private void KillSheep()
