@@ -337,7 +337,7 @@ public class UIFontInspector : Editor
 		{
 			if (mFont.atlas != null)
 			{
-				NGUIEditorTools.DrawHeader("Symbols and Emoticons");
+				NGUIEditorTools.DrawHeader("Symbols and Emoticons", false);
 
 				List<BMSymbol> symbols = mFont.symbols;
 

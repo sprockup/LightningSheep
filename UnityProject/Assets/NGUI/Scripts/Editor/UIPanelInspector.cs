@@ -241,7 +241,7 @@ public class UIPanelInspector : Editor
 			}
 		}
 
-		if (panel.drawCalls.size > 0 && NGUIEditorTools.DrawHeader(panel.drawCalls.size + " draw calls from " + panel.widgets.size + " widgets", "DrawCalls"))
+		if (panel.drawCalls.size > 0 && NGUIEditorTools.DrawHeader(panel.drawCalls.size + " draw calls from " + panel.widgets.size + " widgets", "DrawCalls",false))
 		{
 			NGUIEditorTools.BeginContents();
 			

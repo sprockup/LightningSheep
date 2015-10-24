@@ -99,7 +99,7 @@ public class Sheep : MonoBehaviour {
 					moveSpeed * Time.deltaTime);
 			// This fix keeps the sheep on the ground for now but will not work with any
 			// elevation to their containing field
-			transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
+			transform.position = new Vector3(transform.position.x, 1.25f, transform.position.z);
 			
 			//Debug.Log("Update Pos: " + transform.position);
 		}
@@ -169,7 +169,7 @@ public class Sheep : MonoBehaviour {
 				if (found) 
 				{
 					Debug.Log("Closest sheep found at " + closestSheepDist + ". Hopping to that sheep");
-					closestSheep.SecondaryStrike(this, closestSheepDist);
+					//closestSheep.SecondaryStrike(this, closestSheepDist);
 				}
 			}
 
@@ -228,8 +228,8 @@ public class Sheep : MonoBehaviour {
 		// Create new lightenbolt cylinder from PreFab
 		GameObject bolt = (GameObject)Instantiate(lighteningBolt, b.transform.position, Quaternion.identity);
 		
-		Debug.Log(bolt.transform.position);
-		Debug.Log(b.transform.position);
+		Debug.Log("A  " + a.transform.position);
+		Debug.Log("B  " + b.transform.position);
 		
 		// Face the lightening bolt from sheep to cloud
 		//? bolt.transform.LookAt(a.transform);

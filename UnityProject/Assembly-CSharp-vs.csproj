@@ -185,6 +185,7 @@
      <Compile Include="Assets\Scripts\Managers\TopHUDPanelScale.cs" />
      <Compile Include="Assets\Scripts\Movement\IBehavior.cs" />
      <Compile Include="Assets\Scripts\Movement\RandomBehavior.cs" />
+     <Compile Include="Assets\Scripts\NavSheep.cs" />
      <Compile Include="Assets\Scripts\PinchZoom.cs" />
      <Compile Include="Assets\Scripts\Sheep.cs" />
      <Compile Include="Assets\Scripts\TileMap.cs" />

@@ -48,11 +48,11 @@ public class ChargeManager : MonoBehaviour {
 		maxWidth = newMaxWidth;
 	}
 	
-	void OnGUI()
+	/*void OnGUI()
 	{
 		GUILayout.Label("Charge = " + currentCharge);
 		GUILayout.Label("State  = " + currentState);
-	}
+	}*/
 
 	public static float AddToCharge(float amountToAdd)
 	{
@@ -106,7 +106,7 @@ public class ChargeManager : MonoBehaviour {
 		{
 			currentCharge = 0;
 		}
-		Debug.Log ("ChargeManager::SetState to " + state);
+		//Debug.Log ("ChargeManager::SetState to " + state);
 	}
 
 	public static ChargeState GetState()

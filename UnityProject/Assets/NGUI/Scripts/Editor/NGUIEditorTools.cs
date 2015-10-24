@@ -1036,13 +1036,13 @@ public class NGUIEditorTools
 	/// Draw a distinctly different looking header label
 	/// </summary>
 
-	static public bool DrawHeader (string text, bool forceOn = false) { return DrawHeader(text, text, forceOn); }
+	static public bool DrawHeader (string text, bool forceOn) { return DrawHeader(text, text, forceOn); }
 
 	/// <summary>
 	/// Draw a distinctly different looking header label
 	/// </summary>
 
-	static public bool DrawHeader (string text, string key, bool forceOn = false)
+	static public bool DrawHeader (string text, string key, bool forceOn)
 	{
 		bool state = EditorPrefs.GetBool(key, true);
 

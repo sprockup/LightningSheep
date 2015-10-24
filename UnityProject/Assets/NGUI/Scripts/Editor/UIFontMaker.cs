@@ -89,7 +89,7 @@ public class UIFontMaker : EditorWindow
 		if (string.IsNullOrEmpty(matPath)) matPath = NGUIEditorTools.GetSelectionFolder() + NGUISettings.fontName + ".mat";
 
 		EditorGUIUtility.LookLikeControls(80f);
-		NGUIEditorTools.DrawHeader("Input");
+		NGUIEditorTools.DrawHeader("Input",false);
 
 		GUILayout.BeginHorizontal();
 		mType = (FontType)EditorGUILayout.EnumPopup("Type", mType);
@@ -109,7 +109,7 @@ public class UIFontMaker : EditorWindow
 
 			if (NGUISettings.dynamicFont != null)
 			{
-				NGUIEditorTools.DrawHeader("Output");
+				NGUIEditorTools.DrawHeader("Output",false);
 
 				GUILayout.BeginHorizontal();
 				GUILayout.Label("Font Name", GUILayout.Width(76f));
@@ -172,7 +172,7 @@ public class UIFontMaker : EditorWindow
 			// Draw the atlas selection only if we have the font data and texture specified, just to make it easier
 			if (NGUISettings.fontData != null && NGUISettings.fontTexture != null)
 			{
-				NGUIEditorTools.DrawHeader("Output");
+				NGUIEditorTools.DrawHeader("Output",false);
 
 				GUILayout.BeginHorizontal();
 				GUILayout.Label("Font Name", GUILayout.Width(76f));
