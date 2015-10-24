@@ -5,10 +5,11 @@ using System.Collections;
 public class NavSheep : MonoBehaviour {
 
 	NavMeshAgent navMesh;
+	IBehavior behavior;
 
 	void Start () {
 		navMesh = GetComponent<NavMeshAgent>();
-
+		behavior = new RandomBehavior ();
 		StartCoroutine(UpdatePath());
 	}
 
@@ -20,7 +21,7 @@ public class NavSheep : MonoBehaviour {
 		float UpdateRate = 2;
 
 		while (true) {
-			navMesh.SetDestination(new Vector3 (Random.Range (-7, -200), 0, Random.Range (-170, 9)));
+			navMesh.SetDestination(behavior.GetNextPosition());
 			yield return new WaitForSeconds(UpdateRate);
 		}
 	}

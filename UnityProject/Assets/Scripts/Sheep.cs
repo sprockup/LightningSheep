@@ -49,10 +49,10 @@ public class Sheep : MonoBehaviour {
 		// Now select the first place to move to
 		// Before IF 
 		// 	SelectNextPosition ();
-		nextPosition = behavior.GetNextPosition();
+		//nextPosition = behavior.GetNextPosition();
 
 		// Start coroutine to time out the next position to move towards		
-		StartCoroutine(PickNewPosition());
+		//StartCoroutine(PickNewPosition());
 		
 		// We need the HUD object to know where in the hierarchy to put the element
 		if (HUDRoot.go == null)
@@ -91,7 +91,7 @@ public class Sheep : MonoBehaviour {
 	void Update () 
 	{
 		// Update our position
-		if (isAlive)
+		/*if (isAlive)
 		{
 			transform.position = 
 				Vector3.MoveTowards(transform.position, 
@@ -102,7 +102,7 @@ public class Sheep : MonoBehaviour {
 			transform.position = new Vector3(transform.position.x, 1.25f, transform.position.z);
 			
 			//Debug.Log("Update Pos: " + transform.position);
-		}
+		}*/
 	}
 
 	void LateUpdate()
@@ -169,7 +169,7 @@ public class Sheep : MonoBehaviour {
 				if (found) 
 				{
 					Debug.Log("Closest sheep found at " + closestSheepDist + ". Hopping to that sheep");
-					//closestSheep.SecondaryStrike(this, closestSheepDist);
+					closestSheep.SecondaryStrike(this, closestSheepDist);
 				}
 			}
 
@@ -235,11 +235,11 @@ public class Sheep : MonoBehaviour {
 		//? bolt.transform.LookAt(a.transform);
 		
 		// Position the bolt's center point half way between the cloud and sheep
-		bolt.transform.position = Vector3.Lerp(a.transform.position, b.transform.position, 0.5f);
+		//bolt.transform.position = Vector3.Lerp(a.transform.position, b.transform.position, 0.5f);
 		
 		// Scale the bolt from sheep to cloud
-		Vector3 newScale = bolt.transform.localScale;
-		newScale.y = Vector3.Distance(b.transform.position, a.transform.position);
+		//Vector3 newScale = bolt.transform.localScale;
+		//newScale.y = Vector3.Distance(b.transform.position, a.transform.position);
 		// Commented out for bolt position debug
 		//bolt.transform.localScale = newScale;
 	}
@@ -250,7 +250,7 @@ public class Sheep : MonoBehaviour {
 		isAlive = false;
 		
 		// Create the death particles animation at the sheeps last position
-		Instantiate(deathParticles, transform.position, Quaternion.identity);
+		Instantiate (deathParticles, transform.position, Quaternion.FromToRotation(Vector3.forward, Vector3.up));
 	}
 	
 	private void UpdateHealthPoints()
