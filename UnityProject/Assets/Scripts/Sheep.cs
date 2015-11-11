@@ -124,61 +124,66 @@ public class Sheep : MonoBehaviour {
 
 	void OnTouchDown() 
 	{
-		material.color = selectedColor;
+		//material.color = selectedColor;
 
 		// Clear all charge if a sheep is touched first
-		ChargeManager.SetCharge(0f);
-		ChargeManager.SetState(ChargeManager.ChargeState.NotReady);
+		//ChargeManager.SetCharge(0f);
+		//ChargeManager.SetState(ChargeManager.ChargeState.NotReady);
+		SheepHit ();
 	}
 	
 	void OnTouchUp() 
 	{
-		//Debug.Log ("Sheep OnTouchUp");
-		material.color = defaultColor;
-		if (ChargeManager.GetState() == ChargeManager.ChargeState.ReadyToDischarge)
-		{
-			DirectStrike();
+		SheepHit();
+	}
 
-			UpdateHealthPoints();
-			
+	void SheepHit()
+	{
+		Debug.Log ("SheepHit");
+		material.color = defaultColor;
+		// Removing requirment to hold finger on screen during zap
+		//if (ChargeManager.GetState() == ChargeManager.ChargeState.ReadyToDischarge)
+		if (ChargeManager.GetChargeLevel () > 0) {
+			Debug.Log ("ChargeManager.GetChargeLevel () > 0");
+			DirectStrike ();
+
+			UpdateHealthPoints ();
+
 			// There is still enough charge left to hop to neighboring sheep
 			//else
 			{
-				GameObject[] sheep = GameObject.FindGameObjectsWithTag("Sheep");
+				GameObject[] sheep = GameObject.FindGameObjectsWithTag ("Sheep");
 				Sheep closestSheep = null;
 				float closestSheepDist = 100000f;
 				bool found = false;
-				foreach (GameObject s in sheep)
-				{
-					// Compute distance from this sheep to all others
-					float dist = Vector3.Distance(transform.position, s.transform.position);
-					//Debug.Log("Dist = " + dist + ", ClosestSheepDist = " + closestSheepDist 
-					//	+ ", Target = " + 0.75f * ChargeManager.GetChargeLevel());
-					
-					// Find the closest sheep for this hop
-					if (this.gameObject != s && 
-						dist <= 0.3f * ChargeManager.GetChargeLevel() &&
-						dist < closestSheepDist)
-					{
-						closestSheep = s.GetComponent<Sheep>();
-						closestSheepDist = dist;
-						found = true;
-					}
+				foreach (GameObject s in sheep) {
+						// Compute distance from this sheep to all others
+						float dist = Vector3.Distance (transform.position, s.transform.position);
+						//Debug.Log("Dist = " + dist + ", ClosestSheepDist = " + closestSheepDist 
+						//	+ ", Target = " + 0.75f * ChargeManager.GetChargeLevel());
+
+						// Find the closest sheep for this hop
+						if (this.gameObject != s && 
+								dist <= 0.3f * ChargeManager.GetChargeLevel () &&
+								dist < closestSheepDist) {
+								closestSheep = s.GetComponent<Sheep> ();
+								closestSheepDist = dist;
+								found = true;
+						}
 				}
-				
-				if (found) 
-				{
-					Debug.Log("Closest sheep found at " + closestSheepDist + ". Hopping to that sheep");
-					closestSheep.SecondaryStrike(this, closestSheepDist);
+
+				if (found) {
+						Debug.Log ("Closest sheep found at " + closestSheepDist + ". Hopping to that sheep");
+						closestSheep.SecondaryStrike (this, closestSheepDist);
 				}
 			}
 
 			// Update ChargeManager for the next zap
-			ChargeManager.SetCharge(0f);
-			ChargeManager.SetState(ChargeManager.ChargeState.NotReady);
+			ChargeManager.SetCharge (0f);
+			ChargeManager.SetState (ChargeManager.ChargeState.NotReady);
 		}
 	}
-	
+
 	/*
 	*	cloud - a strike from the lightening bolt  
 	*		with full power to this sheep

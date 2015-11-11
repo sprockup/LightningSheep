@@ -104,7 +104,8 @@ public class ChargeManager : MonoBehaviour {
 		// If the current state is NotReady then reset the charge
 		if (currentState == ChargeState.NotReady)
 		{
-			currentCharge = 0;
+			// REMOVED for non-hold kills
+			//currentCharge = 0;
 		}
 		//Debug.Log ("ChargeManager::SetState to " + state);
 	}

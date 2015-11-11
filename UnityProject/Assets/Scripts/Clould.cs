@@ -32,7 +32,7 @@ public class Clould : MonoBehaviour {
 	
 	void OnTouchUp() 
 	{
-		//Debug.Log("Cloud::OnTouchUp");
+		Debug.Log("Cloud::OnTouchUp");
 		touchState = TouchState.COMPLETED;
 		UpdateCloudColor();
 	}
@@ -66,7 +66,7 @@ public class Clould : MonoBehaviour {
 	
 	void OnTouchExit() 
 	{
-		//Debug.Log("Cloud::OnTouchExit");
+		Debug.Log("Cloud::OnTouchExit");
 		touchState = TouchState.COMPLETED;
 		ChargeManager.SetState(ChargeManager.ChargeState.ReadyToDischarge);
 		UpdateCloudColor();
