@@ -32,7 +32,7 @@ public class LightningBolt : MonoBehaviour {
 		// Create the fading message
 		GameObject fadingMsg = (GameObject)Instantiate(fadingMessagePreFab);
 		// Set the message's text
-		fadingMsg.guiText.text = msg;
+		fadingMsg.GetComponent<GUIText>().text = msg;
 
 
 

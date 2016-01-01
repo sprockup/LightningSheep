@@ -9,9 +9,9 @@ public class FadingMessage : MonoBehaviour {
 
 	void Start() 
 	{
-		Color newColor = guiText.material.color;
+		Color newColor = GetComponent<GUIText>().material.color;
 		newColor.a = 1;
-		guiText.material.color = newColor;
+		GetComponent<GUIText>().material.color = newColor;
 
 		startTime = Time.time;
 
@@ -25,9 +25,9 @@ public class FadingMessage : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
-		Color newColor = guiText.material.color;
+		Color newColor = GetComponent<GUIText>().material.color;
 		float proportion = ((Time.time - startTime) / DURATION);
 		newColor.a = Mathf.Lerp (1, 0, proportion);
-		guiText.material.color = newColor;
+		GetComponent<GUIText>().material.color = newColor;
 	}
 }

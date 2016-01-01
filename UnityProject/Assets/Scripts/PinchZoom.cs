@@ -28,16 +28,16 @@ public class PinchZoom : MonoBehaviour
 			float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
 			
 			// If the camera is orthographic...
-			if (camera.isOrthoGraphic)
+			if (GetComponent<Camera>().orthographic)
 			{
 				// ... change the orthographic size based on the change in distance between the touches.
-				camera.orthographicSize += deltaMagnitudeDiff * orthoZoomSpeed;
+				GetComponent<Camera>().orthographicSize += deltaMagnitudeDiff * orthoZoomSpeed;
 				
 				// Make sure the orthographic size never drops below 10.
-				camera.orthographicSize = Mathf.Max(camera.orthographicSize, 10.0f);
+				GetComponent<Camera>().orthographicSize = Mathf.Max(GetComponent<Camera>().orthographicSize, 10.0f);
 
-				Vector3 touchToWorldA = camera.ScreenToWorldPoint (new Vector3 ((touchZero.position.x), (touchZero.position.y), camera.nearClipPlane));
-				Vector3 touchToWorldB = camera.ScreenToWorldPoint (new Vector3 ((touchOne.position.x), (touchOne.position.y), camera.nearClipPlane));
+				Vector3 touchToWorldA = GetComponent<Camera>().ScreenToWorldPoint (new Vector3 ((touchZero.position.x), (touchZero.position.y), GetComponent<Camera>().nearClipPlane));
+				Vector3 touchToWorldB = GetComponent<Camera>().ScreenToWorldPoint (new Vector3 ((touchOne.position.x), (touchOne.position.y), GetComponent<Camera>().nearClipPlane));
 				
 				Vector3 center = (touchToWorldA + touchToWorldA) / 2.0f; 
 				Vector3 position = new Vector3(center.x, center.y, 0);
@@ -48,11 +48,11 @@ public class PinchZoom : MonoBehaviour
 			else
 			{
 				// Otherwise change the field of view based on the change in distance between the touches.
-				camera.fieldOfView += deltaMagnitudeDiff * perspectiveZoomSpeed;
+				GetComponent<Camera>().fieldOfView += deltaMagnitudeDiff * perspectiveZoomSpeed;
 				
 				// Clamp the field of view to make sure it's between 0 and 180.
 				//camera.fieldOfView = Mathf.Clamp(camera.fieldOfView, 0.1f, 179.9f);
-				camera.fieldOfView = Mathf.Clamp(camera.fieldOfView, 50f, 90f);
+				GetComponent<Camera>().fieldOfView = Mathf.Clamp(GetComponent<Camera>().fieldOfView, 50f, 90f);
 			}
 		}
 	}

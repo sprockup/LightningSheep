@@ -35,7 +35,7 @@ public class Sheep : MonoBehaviour {
 		behavior = new RandomBehavior();
 	
 		// Grab material for color changing
-		material = renderer.material;
+		material = GetComponent<Renderer>().material;
 
 		// Start somewhere random
 		// SelectNextPosition ();
@@ -202,7 +202,7 @@ public class Sheep : MonoBehaviour {
 		// Create the fading message
 		GameObject fadingMsg = (GameObject)Instantiate(fadingMessagePreFab);
 		// Set the message's text
-		fadingMsg.guiText.text = msg;
+		fadingMsg.GetComponent<GUIText>().text = msg;
 	}
 	
 	/*
